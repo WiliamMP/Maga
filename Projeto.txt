@@ -1,0 +1,52 @@
+* Banco de Dados MYSQL;
+* Utilizar HTML E CSS;
+* Utilizar padrao MVC para organização;
+* CONTER UM ARQUIVO README com instrução de como executar o projeto;
+
+
+Linguagens que devem ser utilizados PHP, JS, HTML E CSS
+
+BANCO DE DADOS MYSQL:
+Nome da pessoa;
+CPF;
+Telefone;
+Email;
+Descrição;
+
+OBS: uma pessoa pode ter vários contatos
+
+
+
+
+
+
+Requisitos funcionais:
+RF01 - O sistema deve manter uma tela de consulta para pessoas.
+RF02 - O sistema deve manter um campo de pesquisa por nome de pessoa.
+RF03 - O sistema deve manter uma tela de consulta para contatos.
+RF04 - O sistema deve manter um CRUD (Cadastrar, Visualizar, Alterar,
+Excluir) para pessoas.
+RF05 - O sistema deve manter um CRUD (Cadastrar, Visualizar, Alterar,
+Excluir) para contato.
+
+Requisitos não funcionais:
+RNF01 - O sistema deve utilizar a linguagem PHP para o Back-end.
+RNF02 - O sistema deve utilizar a ORM Doctrine para o Back-end.
+RNF03 - O sistema deve utilizar JS, HTML, CSS.
+RNF04 - O sistema deve ser organizado pelo padrão MVC.
+RNF05 - O sistema deve utilizar o Composer para gerenciamento de
+dependências.
+RNF06 - O sistema deve utilizar um banco de dados SQL (postgres ou mysql).
+
+Regra de Negócio:
+RN01 - São dados de pessoas: Nome e CPF.
+RN02 - São dados de contato: Tipo (Telefone ou Email), Descrição.
+RN03 - Uma pessoa pode ter vários contatos
+
+
+
+Links para documentação de ferramentas utilizadas.
+Composer: https://getcomposer.org/
+Doctrine:https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/index
+.html
+Prazo de entrega: 7 dias
