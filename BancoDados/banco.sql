@@ -33,9 +33,12 @@ CREATE TABLE `dado_contato` (
 -- Extraindo dados da tabela `dado_contato`
 --
 INSERT INTO `dado_contato` (`id`, `tipo`, `desc`, `idPessoa`) VALUES
-(1, 0, 'Teste', 1),
-(2, 0, 'TESS', 2),
-(3, 1, 'ASDasd', 2);
+(1, 0, '47988631515', 1),
+(2, 0, 'JOAO@GMAIL.COM', 1),
+(3, 0, '47988651515', 2),
+(4, 1, 'WILLIAM@GMAIL.COM', 2),
+(5, 0, '47988654415', 3),
+(6, 1, 'PEDRO@GMAIL.COM', 3);
 -- --------------------------------------------------------
 --
 -- Estrutura da tabela `dado_pessoas`
@@ -50,8 +53,9 @@ CREATE TABLE `dado_pessoas` (
 -- Extraindo dados da tabela `dado_pessoas`
 --
 INSERT INTO `dado_pessoas` (`id`, `nome`, `cpf`) VALUES
-(1, 'asd', '111.111.111-11'),
-(2, 'Wiliam', '111.111.111-11');
+(1, 'JOAO', '111.111.111-11'),
+(2, 'WILLIAM', '111.111.111-11'),
+(3, 'PEDRO', '111.111.111-11');
 --
 -- Índices para tabelas despejadas
 --
