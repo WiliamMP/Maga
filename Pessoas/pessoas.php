@@ -52,18 +52,19 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Pessoas</title>
 
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="button.css">
-    <link rel="stylesheet" href="records.css">
-    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="../css/main.css"> <!--main-->
+    <link rel="stylesheet" href="../css/button.css"> <!--button-->
+    <link rel="stylesheet" href="../css/records.css"> <!--records-->
+    <link rel="stylesheet" href="../css/modal.css"> <!--modal-->
     <script type="text/javascript" src="../js/app.js"></script>
 </head>
 
 <body>
     <header>
-        <h1 class="titulo-topo">Cadastro de Pessoas</h1>
+    <a href="pessoas.php" style="text-decoration: none;color: black;"><h1 class="titulo-topo">Cadastro de Pessoas</h1></a>
     </header>
     <main>
+     <button class="button blue"><a href="../index.html" style="color: white;text-decoration: none;">Home</a></button>
         <table class="records">
             <thead>
                 <tr>
@@ -78,14 +79,13 @@ $result = $conn->query($sql);
                         <label>Pesquisar:</label>
                         <input type="search" name="string" id="string" style="height: 25px;width: 423px">
                         <br><br>
-                        <input type="submit" name="search" id="search">
+                        <input type="submit" name="search" id="search" class="button blue">
                     </form>
                 </div>
                 <br><br>
 
                 <button type="button" class="button blue" onclick="change()" name="cadastrarPessoa" id="cadastrarPessoa">Cadastrar Pessoa</button>
-                <button class="button blue"><a href="pessoas.php" style="color: white;text-decoration: none;">Voltar</a></button>
-                <button class="button blue"><a href="../index.html" style="color: white;text-decoration: none;">Home</a></button>
+                
                 <?php
                 while ($info_pessoas = mysqli_fetch_assoc($result)) {
 

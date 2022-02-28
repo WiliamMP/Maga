@@ -3,6 +3,10 @@
 if (!empty($_GET['id'])) {
     include_once('config.php');
 
+
+    //echo "<pre>" . print_r($_GET, true)."</pre>";
+    // return;
+
     $id = $_GET['id'];
     $sqlSelect = "SELECT * FROM `dado_contato` WHERE id = $id";
     $result = $conn->query($sqlSelect);
@@ -12,6 +16,9 @@ if (!empty($_GET['id'])) {
             $id       = $user_data['id'];
             $idPessoa = $user_data['idPessoa'];
             $tipo     = $user_data['tipo'];
+
+            //echo 'tipo contato:' . $tipo . '<br>';
+
             $desc     = $user_data['desc'];
         }
 

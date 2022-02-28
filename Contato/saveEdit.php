@@ -12,7 +12,13 @@
         $tipo     = $_POST['tipoemail'];
         $desc     = $_POST['desc'];
 
-        $sqlUpdate = "UPDATE `banco-de-dados`.`dado_contato` SET idPessoa = $idPessoa, tipo=$tipo, desc='$desc' WHERE id='$id'";
+        // so um min que tem alguem falando aqui comigo....
+
+        $sqlUpdate = "UPDATE `banco-de-dados`.`dado_contato` SET
+                             idPessoa = $idPessoa, 
+                             tipo = $tipo, 
+                             `desc` = '$desc' 
+                       WHERE id = $id";
 
         $result = $conn->query($sqlUpdate);
     }

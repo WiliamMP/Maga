@@ -20,7 +20,7 @@ if ($tipo_de_operacao == "Editar") {
 // EXCLUIR
 if ($tipo_de_operacao == "Excluir") {
     if (!empty($_GET['id'])) {
-        $sql = "DELETE FROM `banco-de-dados`.`dado_contato` WHERE (`idPessoa` = '" . $_GET['id'] . "');";
+        $sql = "DELETE FROM `banco-de-dados`.`dado_contato` WHERE (`id` = '" . $_GET['id'] . "');";
         $result = $conn->query($sql);
     }
 }
@@ -42,7 +42,12 @@ if (isset($_POST['search'])) {
     $condicao .= " and nome = '" . $_POST['string'] . "'";
 }
 
-$sql_contato = "SELECT * FROM dado_contato INNER JOIN dado_pessoas ON dado_pessoas.id = dado_contato.idPessoa $condicao";
+$sql_contato = "SELECT dado_contato.id as id_contato, 
+                       dado_pessoas.nome,
+                       dado_contato.tipo,
+                       dado_contato.desc
+                  FROM dado_contato 
+            INNER JOIN dado_pessoas ON dado_pessoas.id = dado_contato.idPessoa $condicao";
 $oDadosContato = $conn->query($sql_contato);
 
 $sql_pessoa = "SELECT * FROM dado_pessoas order by 1";
@@ -59,18 +64,19 @@ $oDadosPessoas = $conn->query($sql_pessoa);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Contatos</title>
 
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="button.css">
-    <link rel="stylesheet" href="records.css">
-    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="../css/main.css"> <!--main-->
+    <link rel="stylesheet" href="../css/button.css"> <!--button-->
+    <link rel="stylesheet" href="../css/records.css"> <!--records-->
+    <link rel="stylesheet" href="../css/modal.css"> <!--modal-->
     <script type="text/javascript" src="../js/app.js"></script>
 </head>
 
 <body>
     <header>
-        <h1 class="titulo-topo">Cadastro de Contato</h1>
+        <a href="contato.php"><h1 class="titulo-topo" style="text-decoration: none; color: black;">Cadastro de Contato</h1></a>
     </header>
     <main>
+        <button class="button blue"><a href="../index.html" style="color: white;text-decoration: none;">Home</a></button>
         <table class="records">
             <thead>
                 <tr>
@@ -86,14 +92,12 @@ $oDadosPessoas = $conn->query($sql_pessoa);
                         <label>Pesquisar:</label>
                         <input type="search" name="string" id="string" style="height: 25px;width: 423px">
                         <br><br>
-                        <input type="submit" name="search" id="search">
+                        <input type="submit" name="search" id="search" class="button blue">
                     </form>
                 </div>
                 <br><br>
 
                 <button type="button" class="button blue" onclick="change()" name="cadastrarPessoa" id="cadastrarPessoa">Cadastrar Contato</button>
-                <button class="button blue"><a href="contato.php" style="color: white;text-decoration: none;">Voltar</a></button>
-                <button class="button blue"><a href="../index.html" style="color: white;text-decoration: none;">Home</a></button>
                 <?php
                 while ($info_contatos = mysqli_fetch_assoc($oDadosContato)) {
                     echo "<tr>";
@@ -101,14 +105,15 @@ $oDadosPessoas = $conn->query($sql_pessoa);
                     echo "<td>" . $info_contatos['nome'] . "</td>";
                     if(intval($info_contatos['tipo']) == 0){
                         echo "<td>Telefone</td>";
+                        
                     } else {
-                        echo "<td>E-mail</td>";
+                        echo "<td>E-mail</td>";                        
                     }
                     
 
                     echo "<td>" . $info_contatos['desc'] . "</td>";
-                    echo "<td>" . '<a href="editar.php?id=' . $info_contatos['id'] . '&type=Editar"><button type="button" class="button green">Editar</button></a>
-                    <a href="contato.php?id=' . $info_contatos['id'] . '&type=Excluir"> <button type="button" class="button red">Excluir</button></a> ' . "</td>";
+                    echo "<td>" . '<a href="editar.php?id=' . $info_contatos['id_contato'] . '&type=Editar"><button type="button" class="button green">Editar</button></a>
+                    <a href="contato.php?id=' . $info_contatos['id_contato'] . '&type=Excluir"> <button type="button" class="button red">Excluir</button></a> ' . "</td>";
                 }
                 ?>
             </tbody>
