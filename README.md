@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 # Maga
 
-=======
+
 # Instruções como executar:
   
 1. Executar o arquivo 'banco.sql' que se encontra na pasta BancoDados;
@@ -24,4 +24,4 @@
 - Resolução 1360x768;
 - Não suporta mobile;
 - Linguagens utilizadas: HTML,CSS,JS,PHP,MySQL
->>>>>>> 19607944ab4104d27fe4a87b3cea29ba0c81827c
+
