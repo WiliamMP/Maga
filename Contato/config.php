@@ -6,7 +6,3 @@
     $port = 3306;
 
     $conn = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName,$port);
-
-    
-
-?>

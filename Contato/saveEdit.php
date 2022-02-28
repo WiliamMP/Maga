@@ -1,18 +1,19 @@
 <?php
-
     include_once('config.php');
 
-    echo $_POST['nome'];
-    echo $_POST['cpf'];
-
     if(isset($_POST['submit'])){
-        $id = $_POST['id'];
-        $nome = $_POST['nome'];
-        $cpf = $_POST['cpf'];
 
-        $sqlUpdate = "UPDATE `banco-de-dados`.`dado_pessoas` SET nome='$nome',cpf='$cpf' WHERE id='$id'";
+        echo "<pre>" . print_r($_POST, true)."</pre>";
+
+//        return;
+
+        $id       = $_POST['id'];
+        $idPessoa = $_POST['idpessoa'];
+        $tipo     = $_POST['tipoemail'];
+        $desc     = $_POST['desc'];
+
+        $sqlUpdate = "UPDATE `banco-de-dados`.`dado_contato` SET idPessoa = $idPessoa, tipo=$tipo, desc='$desc' WHERE id='$id'";
 
         $result = $conn->query($sqlUpdate);
     }
-    header('Location: pessoas.php');
-?>
+    header('Location: contato.php');

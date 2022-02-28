@@ -85,6 +85,7 @@ $result = $conn->query($sql);
 
                 <button type="button" class="button blue" onclick="change()" name="cadastrarPessoa" id="cadastrarPessoa">Cadastrar Pessoa</button>
                 <button class="button blue"><a href="pessoas.php" style="color: white;text-decoration: none;">Voltar</a></button>
+                <button class="button blue"><a href="../index.html" style="color: white;text-decoration: none;">Home</a></button>
                 <?php
                 while ($info_pessoas = mysqli_fetch_assoc($result)) {
 
@@ -103,7 +104,7 @@ $result = $conn->query($sql);
                     <h2 style="margin-right: 225px;">Nova Pessoa</h2>
                     <span class="modal-close" id="modalClose" onclick="closeModal()">&#10006;</span>
                 </header>
-                <form id="form1" class="modal-form" action="pessoas.php" method="POST">
+                <form id="form_pessoa" class="modal-form" action="pessoas.php" method="POST">
                     <input type="text" name="nome" id="nome" class="modal-field" placeholder="Nome da Pessoa" required>
                     <input type="text" name="cpf" id="cpf" class="modal-field" placeholder="CPF" required>
                     <a href="pessoas.php?type=Salvar"><input type="submit" name="submit" onclick="submitForm()" id="submit" class="button green"></a>
